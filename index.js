@@ -3,7 +3,8 @@ function changeBills(cash) {
     let ten = Math.floor(cash / 10);
     let five =
       Math.floor(cash % 10) >= 5 ? Math.floor(Math.floor(cash % 10) / 5) : 0;
-    let two = five >= 2 || five < 1 ? Math.floor(Math.floor(cash % 10) / 2) : 0;
+    let two =
+      five >= 2 || five <= 1 ? Math.floor(Math.floor(cash % 10) % 2) : 0;
     return {
       two,
       five,
@@ -37,6 +38,9 @@ function changeBills(cash) {
   };
 }
 
-console.log(changeBills(1).ten);
-console.log(changeBills(1).five);
-console.log(changeBills(1).two);
+console.log("changeBills(17).ten :", changeBills(17).ten);
+console.log("changeBills(17).five :", changeBills(17).five);
+console.log("changeBills(17).two :", changeBills(17).two);
+console.log("changeBills(6).ten :", changeBills(6).ten);
+console.log("changeBills(6).five :", changeBills(6).five);
+console.log("changeBills(6).two :", changeBills(6).two);
